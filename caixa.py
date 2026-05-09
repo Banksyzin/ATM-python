@@ -11,7 +11,7 @@ def first_deposito():
                 valor_deposito = float(input("Informe qual o valor que você deseja depositar: "))
                 saldo += valor_deposito
                 extrato.append({"Depósito: R$", valor_deposito})
-                print("Obrigado pela preferência! Agora você pode utilizar os nossos serviços, segue abaixo o menu com as opções: ")
+                print("Obrigado pela preferência! Agora você pode utilizar os nossos serviços, segue abaixo o menu com as opções:\n")
                 break
             elif primeiro_deposito == "sair":
                 print("Obrigado por utilizar nossos serviços!")
@@ -26,7 +26,13 @@ def menu():
     global saldo
     global extrato
     while True:
-        selecao_opcao = int(input("Informe qual operação você deseja executar: 1(extrato), 2(sacar), 3(transferencia), 4(saldo), 5(deposito) e 6(sair): "))
+        selecao_opcao = int(input("Informe qual operação você deseja executar:\n"
+        "1(extrato)\n" 
+        "2(sacar)\n" 
+        "3(transferencia)\n"
+        "4(saldo)\n" 
+        "5(deposito)\n"  
+        "6(sair)\n"))
         if selecao_opcao == 1:
             print(extrato)
         elif selecao_opcao == 2:
