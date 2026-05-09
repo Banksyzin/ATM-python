@@ -54,15 +54,15 @@ def menu():
                     while True:
                         conta_transferencia = input("Qual o número da conta de destino para envio do valor?(preencha com os 9 digitos e sem o hifen (-)): ")
                         if len(conta_transferencia) == 9 and conta_transferencia.isdigit():
-                                print("Conta válida!")
+                                print("Conta válida!\n")
                                 break
                         else:
-                                print("Conta inválida, verifique e tente novamente!")
+                                print("Conta inválida, verifique e tente novamente!\n")
                     valor_transferencia = float(input("Quanto você deseja transferir?: "))
                     if valor_transferencia < 0:
-                            print("Valor inválido para transferência!")
+                            print("Valor inválido para transferência!\n")
                     elif valor_transferencia > saldo:
-                            print("Você não possui saldo suficiente para realizar a transferência!")
+                            print("Você não possui saldo suficiente para realizar a transferência!\n")
                     confirmacao_transferencia = input("Verificou se os dados estão corretos e deseja realmente confirmar a transferência?(sim) para confirmar e (não) para validar novamente:\n").lower()
                     if confirmacao_transferencia == "sim":
                         saldo -= valor_transferencia
