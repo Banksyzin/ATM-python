@@ -9,8 +9,11 @@ def first_deposito():
         while True:
             if primeiro_deposito == "sim":
                 valor_deposito = float(input("Informe qual o valor que você deseja depositar: "))
+                if valor_deposito <= 0:
+                     print("Não foi possível efetuar o deposito, o valor de deposito deve ser maior que 0!\n")
+                     continue
                 saldo += valor_deposito
-                extrato.append({"Depósito: R$", valor_deposito})
+                extrato.append({"Depósito: R$": valor_deposito})
                 print("Obrigado pela preferência! Agora você pode utilizar os nossos serviços, segue abaixo o menu com as opções:\n")
                 break
             elif primeiro_deposito == "sair":
@@ -34,7 +37,8 @@ def menu():
         "5(deposito)\n"  
         "6(sair)\n"))
         if selecao_opcao == 1:
-            print(extrato)
+            for e in extrato:
+              print(e)
         elif selecao_opcao == 2:
                 saque = float(input("Informe o valor que você deseja sacar: "))
                 if saldo <= 0:
@@ -59,13 +63,13 @@ def menu():
                             print("Valor inválido para transferência!")
                     elif valor_transferencia > saldo:
                             print("Você não possui saldo suficiente para realizar a transferência!")
-                    confirmacao_transferencia = input("Verificou se os dados estão corretos e deseja realmente confirmar a transferência?(sim) para confirmar e (não) para validar novamente: ").lower()
+                    confirmacao_transferencia = input("Verificou se os dados estão corretos e deseja realmente confirmar a transferência?(sim) para confirmar e (não) para validar novamente:\n").lower()
                     if confirmacao_transferencia == "sim":
                         saldo -= valor_transferencia
                         print("Transação realizada com sucesso para a conta:", conta_transferencia, "\nValor da transferência: ", "R$", valor_transferencia)
                         print("Seu saldo após a transação é de: ", "R$", saldo)
                         extrato.append({"Transferência: R$": valor_transferencia})
-                    elif confirmacao_transferencia == "nao":
+                    elif confirmacao_transferencia == "nao" or confirmacao_transferencia == "não":
                         print("Transferência cancelada! Voltando ao menu...")
         elif selecao_opcao == 4:
             print("O seu saldo é: ", "R$", saldo)
@@ -79,7 +83,7 @@ def menu():
           extrato.append({"Depósito: R$": deposito})
         elif selecao_opcao == 6:
             print("Obrigado por utilizar nossos serviços!")
-            break
+            exit()
         else:
             print("Erro: Opção invalida, será necessário recomeçar a operação!")
             break
