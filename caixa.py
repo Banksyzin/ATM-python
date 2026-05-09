@@ -15,7 +15,7 @@ def first_deposito():
                 break
             elif primeiro_deposito == "sair":
                 print("Obrigado por utilizar nossos serviços!")
-                break
+                exit()
             else:
                 print("Resposta inválida!")
                 while primeiro_deposito != "sim" and primeiro_deposito != "sair":
